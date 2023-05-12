@@ -1,0 +1,16 @@
+name: Deploy
+
+on:
+  release:
+    types:
+    - released
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+    - uses: JamesIves/github-pages-deploy-action@v4.4.0
+      with:
+        branch: gh-pages
+        folder: site
